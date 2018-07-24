@@ -1,0 +1,24 @@
+= form_with(model: @ticket, local: true, html: { role: 'form' }) do |f|
+  - if @ticket.errors.any?
+    %h4= "#{pluralize(@ticket.errors.count, 'エラーがあります。')}"
+    %ul
+      - @ticket.errors.full_messages.each do |msg|
+        %li= msg
+
+  = f.label :title
+  = f.text_field :title, required: true
+  %br
+
+  = f.label :body
+  = f.text_field :body, required: true
+  %br
+
+  = f.label :number
+  = f.number_field :number
+  %br
+
+  = f.label :expired_at
+  = f.datetime_field :expired_at
+  %br
+
+  = f.submit
