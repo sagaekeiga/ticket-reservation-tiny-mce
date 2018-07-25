@@ -1,2 +1,17 @@
-%h1 Tickets#index
-%p Find me in app/views/tickets/index.html.erb
+.col-xs-12
+  %table.table
+    %thead
+      %tr
+        %th
+        %th チケット名
+        %th 内容
+        %th.text-center チケット販売可能枚数
+        %th.text-center 締切日
+    %tbody
+      - @tickets.each.with_index(1) do |ticket, index|
+        %tr
+          %td= index
+          %td= ticket.title
+          %td= ticket.body
+          %td.text-center= ticket.number
+          %td.text-center= ticket.expired_at

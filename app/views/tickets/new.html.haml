@@ -1,24 +1,26 @@
-= form_with(model: @ticket, local: true, html: { role: 'form' }) do |f|
-  - if @ticket.errors.any?
-    %h4= "#{pluralize(@ticket.errors.count, 'エラーがあります。')}"
-    %ul
-      - @ticket.errors.full_messages.each do |msg|
-        %li= msg
-
-  = f.label :title
-  = f.text_field :title, required: true
-  %br
-
-  = f.label :body
-  = f.text_field :body, required: true
-  %br
-
-  = f.label :number
-  = f.number_field :number
-  %br
-
-  = f.label :expired_at
-  = f.datetime_field :expired_at
-  %br
-
-  = f.submit
+.col-md-12
+  = form_with(model: @ticket, local: true, html: { class: 'form-horizontal', role: 'form' }) do |f|
+    - if @ticket.errors.any?
+      .alert.alert-danger.alert-dismissable{ role: 'alert' }
+        %button.close{ type: 'button', data: { dismiss: 'alert' } }
+          %span{ aria: { hidden: 'true' } } &times;
+          %span.sr-only Close
+        %h4= "#{pluralize(@ticket.errors.count, 'エラーがあります。')}"
+        %ul
+          - @ticket.errors.full_messages.each do |msg|
+            %li= msg
+    .form-group
+      = f.label :title, class: 'col-sm-2 control-label'
+      .col-sm-10= f.text_field :title, class: 'form-control', required: true
+    .form-group
+      = f.label :body, class: 'col-sm-2 control-label'
+      .col-sm-10= f.text_field :body, class: 'form-control', required: true
+    .form-group
+      = f.label :number, class: 'col-sm-2 control-label'
+      .col-sm-10= f.number_field :number, class: 'form-control'
+    .form-group
+      = f.label :expired_at, class: 'col-sm-2 control-label'
+      .col-sm-10= f.datetime_field :expired_at, class: 'form-control'
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit class: 'btn btn-primary'

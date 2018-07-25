@@ -13,6 +13,7 @@ class TicketsController < ApplicationController
   end
 
   def index
+    @tickets = Ticket.all
   end
 
   private
@@ -21,7 +22,7 @@ class TicketsController < ApplicationController
     params.require(:ticket).permit(
       :title,     # チケット名
       :body,      # チケットの内容
-      :number,    # チケット販売可能個数
+      :number,    # チケット販売可能枚数
       :expired_at # チケットの予約締切日時
     )
   end
