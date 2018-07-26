@@ -1,0 +1,19 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{ type: 'button',
+        aria: { contorls: 'navbar', expanded: 'false' },
+        data: { target: '#navbar', toggle: 'collapse' } }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'ホーム', :root, class: 'navbar-brand'
+
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav.pull-right
+        - if user_signed_in?
+          %li.text-right
+            = link_to 'プロフィール変更', :edit_user_registration
+          %li
+            = link_to 'ログアウト', :destroy_user_session, method: :delete
