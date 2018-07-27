@@ -42,6 +42,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'erb2haml'
   gem 'sqlite3'
+  gem 'rails-erd'
 end
 
 group :development do

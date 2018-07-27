@@ -1,3 +1,21 @@
 .col-md-12
-  %h1 Welcome#index
-  %p Find me in app/views/welcome/index.html.haml
+  %h3.text-center チケット一覧
+  %table.table
+    %thead
+      %tr
+        %th
+        %th チケット名
+        %th 内容
+        %th.text-center チケット販売可能枚数
+        %th.text-center 締切日
+        %th
+    %tbody
+      - @tickets.each.with_index(1) do |ticket, index|
+        %tr
+          %td= index
+          %td= ticket.title
+          %td= ticket.body
+          %td.text-center= ticket.number
+          %td.text-center= ticket.expired_at
+          %td.text-center
+            = link_to '予約する', confirm_users_ticket_deliveries_path(ticket), class: 'btn btn-primary'
