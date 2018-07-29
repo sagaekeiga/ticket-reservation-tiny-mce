@@ -1,0 +1,24 @@
+.col-xs-12
+  .page-header{ 'ticket-id': @ticket.id }
+    %h3 チケット概要
+  %table.table
+    %thead
+      %tr
+        %th チケット名
+        %th 内容
+        %th.text-center チケット販売可能枚数
+        %th.text-center 締切日
+    %tbody
+      %tr
+        %td= @ticket.title
+        %td= @ticket.body
+        %td.text-center= @ticket.number
+        %td.text-center= @ticket.expired_at
+
+  .page-header
+    %h3 チケットデータ
+  -# 追加（開始位置）
+  .ticket-show-chart-wrapper
+    %canvas{ id: 'chart', width: '900', class: 'chart' }
+= javascript_pack_tag 'ticket-show-chart'
+-# 追加（終了位置）

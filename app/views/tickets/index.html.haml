@@ -7,6 +7,7 @@
         %th 内容
         %th.text-center チケット販売可能枚数
         %th.text-center 締切日
+        %th
     %tbody
       - @tickets.each.with_index(1) do |ticket, index|
         %tr
@@ -15,3 +16,4 @@
           %td= ticket.body
           %td.text-center= ticket.number
           %td.text-center= ticket.expired_at
+          %td.text-center= link_to '詳細', ticket, class: 'btn btn-block'

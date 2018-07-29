@@ -34,6 +34,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise'
+gem 'dotenv-rails'
+gem 'jquery-rails'
+gem 'webpacker'
+gem 'chart-js-rails'
+gem 'enum_help'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

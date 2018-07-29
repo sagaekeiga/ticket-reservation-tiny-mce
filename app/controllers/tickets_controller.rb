@@ -16,6 +16,19 @@ class TicketsController < ApplicationController
     @tickets = Ticket.all
   end
 
+  def show
+    @ticket = Ticket.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: {
+          gender_names: Users::Profile.genders_i18n.invert.keys, # genderの属性名 ['男性', '女性']
+          genders: @ticket.deliveries.genders
+        }
+      end
+    end
+  end
+
   private
 
   def ticket_params

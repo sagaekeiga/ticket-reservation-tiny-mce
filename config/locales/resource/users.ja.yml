@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      user_profile: プロフィール
+    attributes:
+      user:
+        id: ユーザーID
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        sign_in_count: ログイン回数
+        created_at: 登録日時
+        last_sign_in_at: 前回ログイン時刻
+
+      users/profile:
+        user: ユーザー
+        gender: 性別
+  enums:
+    users:
+      profile:
+        gender:
+          woman: 女性
+          man: 男性
+
+  users:
+    registrations:
+      edit:
+        title: プロフィールの編集
+        submit: 更新する

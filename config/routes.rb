@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations', # 確認
     sessions: 'users/sessions'            # ログイン
   }
-  resources :tickets, only: %i(new create index)
+  resources :tickets, only: %i(new create index show)
 
   #
   # ユーザー

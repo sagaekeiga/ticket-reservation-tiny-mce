@@ -7,4 +7,6 @@ class User < ApplicationRecord
   # Relations
   # -------------------------------------------------------------------------------
   has_many :deliveries, dependent: :destroy
+  has_one :profile, class_name: 'Users::Profile', dependent: :destroy
+  accepts_nested_attributes_for :profile
 end

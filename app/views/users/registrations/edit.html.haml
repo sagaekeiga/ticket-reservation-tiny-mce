@@ -1,6 +1,6 @@
 .col-md-12
-  %h2
-    Edit #{resource_name.to_s.humanize}
+  .page-header
+    %h2= t '.title'
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal', role: 'form' }) do |f|
     = devise_error_messages!
     .form-group
@@ -12,9 +12,15 @@
     .form-group
       = f.label :password_confirmation, class: 'col-sm-2 control-label'
       .col-sm-10= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off'
-    .form-group
-      = f.label :current_password, class: 'col-sm-2 control-label'
-      .col-sm-10= f.password_field :current_password, class: 'form-control', autocomplete: 'off'
+    // プロフィール
+    = f.fields_for :profile do |profile_f|
+      .form-group
+        = profile_f.label :gender, class: 'col-sm-2 control-label'
+        .col-sm-9.col-xs-12
+          - Users::Profile.genders_i18n.invert.each do |key_i18n, value|
+            %label.radio-inline
+              = profile_f.radio_button :gender, value
+              = key_i18n
     .form-group
       .col-sm-offset-2.col-sm-10
-        = f.submit 'Update', class: 'btn btn-primary'
+        = f.submit t('.submit'), class: 'btn btn-primary'
