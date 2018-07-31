@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      ticket: ユーザー
+    attributes:
+      ticket:
+        title: タイトル
+        body: 内容
+        number: 予約受付枚数
+        expired_at: 締切日時

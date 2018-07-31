@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery
+//= require jquery3
 //= require turbolinks
 //= require bootstrap
 //= require Chart.min
+//= require tinymce
 //= require_tree .

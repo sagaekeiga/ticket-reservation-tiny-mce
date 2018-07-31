@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'            # ログイン
   }
   resources :tickets, only: %i(new create index show)
+  resources :ticket_images, only: %i(create)
 
   #
   # ユーザー

@@ -14,7 +14,7 @@
       .col-sm-10= f.text_field :title, class: 'form-control', required: true
     .form-group
       = f.label :body, class: 'col-sm-2 control-label'
-      .col-sm-10= f.text_field :body, class: 'form-control', required: true
+      .col-sm-10= f.text_area :body, class: 'tinymce', rows: 20, cols: 120, required: true
     .form-group
       = f.label :number, class: 'col-sm-2 control-label'
       .col-sm-10= f.number_field :number, class: 'form-control'
@@ -24,3 +24,4 @@
     .form-group
       .col-sm-offset-2.col-sm-10
         = f.submit class: 'btn btn-primary'
+= javascript_pack_tag 'tiny-mce'

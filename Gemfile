@@ -39,6 +39,9 @@ gem 'jquery-rails'
 gem 'webpacker'
 gem 'chart-js-rails'
 gem 'enum_help'
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
+gem 'carrierwave'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
